@@ -1,0 +1,9 @@
+stages:
+    - build
+
+gcc:
+  stage: build
+  script:
+    - export cc=gcc && ${cc} --version
+    - export OMPI_MPICC=${cc} && mpicc --version
+    - cd par/ && make install

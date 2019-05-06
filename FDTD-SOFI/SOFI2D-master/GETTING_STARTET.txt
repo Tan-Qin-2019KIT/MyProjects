@@ -1,0 +1,30 @@
+To compile the program do:
+cd sofi2D/src
+then
+"make sofi2D"  to compile the standard staggered grid version (SSG)
+
+(you probably need to change the compiler options in soif2D/src/Makefile)
+
+To run the program on 4 CPUs do
+cd sofi2D/par
+
+mpirun -np 4 ../bin/sofi2D ./in_and_out/sofi2D.json > ./in_and_out/sofi2D.jout
+
+you may also use the shell script startSOFI2D.sh
+
+The file sofi2D/par/in_and_out/sofi2D.jout shows the obtained screen output.
+
+The modelling parameters are specified in sofi2D.json. We hope that the
+parameters are more or less self-explanatory. The synthetic seismograms 
+and snapshots are written to the files specified in sofi2D/par/in_and_out/sofi2D.json.
+
+In the current distribution the model is generated on the fly
+by the function sofi2D/src/hh.c. This function generates a homogeneous
+medium with Vp=3500 m/s, Vs=2000 m/s, and rho=2000 kg/(m*m*m).
+The function readmod.c can be used to read model info from external grid files.
+See readmod.c for the format of the external files.
+You can change the function which generates the model grid at the beginning of
+sofi2D/src/Makefile.
+
+For more information,  please compile the sofi2D manual in ./sofi2D/doc/guide_sofi2D
+or get the manual from https://git.scc.kit.edu/GPIAG-Software/SOFI2D/wikis/home

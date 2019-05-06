@@ -1,0 +1,6 @@
+[submodule "IFOS"]
+	path = IFOS
+	url = ./IFOS
+[submodule "FDSimulation_LAMA"]
+	path = FDSimulation_LAMA
+	url = ./FDSimulation_LAMA
